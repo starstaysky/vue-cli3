@@ -9,11 +9,14 @@ const app = express()
 let router = express.Router()
 // 通过路由请求本地数据
 app.use('/api', router)
+// 指定静态资源文件
+app.use('/static', express.static(path.join(__dirname, './public/static')))
 
 let mock = require('./src/lib/mock')
 let debug = require('debug')('mock')
 let Mock = require('mockjs')
 
+// 本地定制化
 const __config = {
   dev: {
     enableMock: false // 是否开启本地数据mock
@@ -21,7 +24,6 @@ const __config = {
 }
 
 module.exports = {
-  assetsDir: 'static',
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@$', resolve('src'))
