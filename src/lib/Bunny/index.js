@@ -12,7 +12,9 @@ class Bunny {
       render: h => h(App)
     }).$mount('#app')
   }
-
+  plugin (plugin) {
+    Vue.use(plugin)
+  }
   bootstrap (el, App) {
     this.init(el, App)
   }
