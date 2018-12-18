@@ -24,6 +24,7 @@ const __config = {
 }
 
 module.exports = {
+  outputDir: './server/app/public',
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@$', resolve('src'))
